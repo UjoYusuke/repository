@@ -3,53 +3,41 @@
 def reverse_string(input_string):
     """Reverse the given string."""
     if not isinstance(input_string, str):
-        return "Error: Input is not a string."
-    reversed_string = ""
-    for char in input_string:
-        reversed_string = char + reversed_string
-    return reversed_string
+        raise TypeError("Input must be a string.")
+    return input_string[::-1]
 
 
 def count_vowels(input_string):
     """Count the number of vowels in a string."""
     if not isinstance(input_string, str):
-        return "Error: Input is not a string."
-    vowels = "aeiouAEIOU"
-    count = 0
-    for char in input_string:
-        if char in vowels:
-            count += 1
-    return count
+        raise TypeError("Input must be a string.")
+    vowels = set("aeiouAEIOU")
+    return sum(1 for char in input_string if char in vowels)
 
 
 def is_palindrome(input_string):
     """Check if a string is a palindrome."""
     if not isinstance(input_string, str):
-        return "Error: Input is not a string."
-    normalized_string = input_string.lower().replace(" ", "")
+        raise TypeError("Input must be a string.")
+    normalized_string = "".join(char.lower() for char in input_string if char.isalnum())
     return normalized_string == normalized_string[::-1]
 
 
 def get_word_frequencies(input_string):
     """Get word frequencies from a string."""
     if not isinstance(input_string, str):
-        return "Error: Input is not a string."
+        raise TypeError("Input must be a string.")
+    from collections import Counter
     words = input_string.lower().split()
-    frequencies = {}
-    for word in words:
-        if word in frequencies:
-            frequencies[word] += 1
-        else:
-            frequencies[word] = 1
-    return frequencies
+    return Counter(words)
 
 
 def replace_word(input_string, old_word, new_word):
     """Replace occurrences of a word in a string with another word."""
     if not isinstance(input_string, str):
-        return "Error: Input is not a string."
+        raise TypeError("Input must be a string.")
     if not isinstance(old_word, str) or not isinstance(new_word, str):
-        return "Error: Words to replace must be strings."
+        raise TypeError("Words to replace must be strings.")
     return input_string.replace(old_word, new_word)
 
 
