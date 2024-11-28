@@ -56,6 +56,20 @@ def replace_word(input_string, old_word, new_word):
 if __name__ == "__main__":
     test_string = "CodeCatalyst is awesome. Coding with CodeCatalyst is fun and productive."
 
+    # テスト sum_numbers() 関数
+    print("\nTesting sum_numbers():")
+    valid_numbers = [1, 2, 3, 4.5]
+    print(f"Sum of {valid_numbers}: {sum_numbers(valid_numbers)}")
+
+    invalid_numbers = [1, 2, 'a', 3, 5]
+    print(f"Sum of {invalid_numbers}: {sum_numbers(invalid_numbers)}")
+
+    mixed_numbers = [1, 2.5, '3', 4]
+    print(f"Sum of {mixed_numbers}: {sum_numbers(mixed_numbers)}")
+
+    empty_list = []
+    print(f"Sum of {empty_list}: {sum_numbers(empty_list)}")
+
     print("Original string:", test_string)
 
     # Reverse the string
